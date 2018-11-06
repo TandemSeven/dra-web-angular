@@ -9,12 +9,15 @@ import { MaterialModule } from './material.module';
 
 import { CurrentWeatherComponent } from './current-weather/current-weather.component';
 import { WeatherForecastComponent } from './weather-forecast/weather-forecast.component';
+import { WaveComponent } from './wave/wave.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     CurrentWeatherComponent,
-    WeatherForecastComponent
+    WeatherForecastComponent,
+    WaveComponent
   ],
   imports: [
     AppRoutingModule,

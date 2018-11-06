@@ -11,3 +11,101 @@ section {
   padding-bottom: 10vw;
   position: relative;
 }
+
+.current-weather__container {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: 1fr;
+  height: 100%;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: white;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  padding-left: 6rem;
+  padding-right: 6rem;
+}
+
+.current-weather__grid {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-areas: 'date' 'location' 'forecast';
+  text-align: center;
+}
+
+.current-weather__location {
+  grid-area: location;
+  font-size: 2em;
+  line-height: 1em;
+}
+
+@media screen and (min-width: 768px) {
+  .current-weather__grid {
+      grid-template-areas: 'location date' 'forecast -';
+      text-align: left;
+  }
+}
+
+.current-weather__date {
+  grid-area: date;
+}
+
+@media screen and (min-width: 768px) {
+  .current-weather__date {
+      text-align: right;
+  }
+}
+
+.current-weather__forecast {
+    grid-area: forecast;
+}
+
+@media screen and (min-width: 768px) {
+  .current-weather__grid[data-v-7f8ddc19] {
+      grid-template-areas: 'location date' 'forecast -';
+      text-align: left;
+  }
+}
+
+.current-weather__temperature {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.current-weather__temperature {
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-size: 5em;
+  line-height: 1em;
+}
+
+@media screen and (min-width: 768px) {
+  .current-weather__temperature {
+      -webkit-box-pack: start;
+      -ms-flex-pack: start;
+      justify-content: flex-start;
+  }
+}
+
+sup {
+  vertical-align: super;
+  font-size: smaller;
+}
+
+.current-weather__temperature__symbol {
+  font-size: 0.3em;
+  line-height: 1em;
+  margin-top: 0.75em;
+}
