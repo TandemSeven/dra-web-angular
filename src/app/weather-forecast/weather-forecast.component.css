@@ -1,0 +1,6 @@
+section {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  min-height: 50vh;
+  padding: 20px;
+}
