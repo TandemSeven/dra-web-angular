@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
+import { Env } from '../env.enum';
+
 @Injectable()
 export class WeatherService {
   locWeatherChanged = new Subject<any>();
@@ -8,7 +10,7 @@ export class WeatherService {
 
   async fetchCurrentWeatherForLocation(lat: number, lon: number) {
     const response = await fetch(
-      `https://api.weather.gov/points/${lat},${lon}/forecast/hourly`
+      Env.VUE_APP_WEATHER_API_HOST + `/points/${lat},${lon}/forecast/hourly`
     );
 
     const json = await response.json();
@@ -17,7 +19,7 @@ export class WeatherService {
 
   async fetchForecastForLocation(lat: number, lon: number) {
     const response = await fetch(
-      `https://api.weather.gov/points/${lat},${lon}/forecast`
+      Env.VUE_APP_WEATHER_API_HOST + `/points/${lat},${lon}/forecast`
     );
     const data = await response.json();
     this.locForcastChanged.next(data);

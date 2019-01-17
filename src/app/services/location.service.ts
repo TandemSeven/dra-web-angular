@@ -6,6 +6,8 @@ import { NearestUrban } from './nearest-urban.model';
 
 import { UIService } from '../services/ui.service';
 
+import { Env } from '../env.enum';
+
 @Injectable()
 export class LocationService {
   locationChanged = new Subject<Location>();
@@ -13,10 +15,12 @@ export class LocationService {
   private location: Location;
   currentZip = '';
 
-  constructor(private uiService: UIService) {}
+  constructor(private uiService: UIService) {
+    console.log(Env.VUE_APP_IP_API_HOST);
+  }
 
   async fetchCurrentLocation() {
-    const response = await fetch('http://ip-api.com/json');
+    const response = await fetch(Env.VUE_APP_IP_API_HOST);
     const data = await response.json();
     if (data.zip === this.currentZip) {
       this.uiService.clearIsLoading();
@@ -37,22 +41,10 @@ export class LocationService {
 
   async fetchNearestUrbanArea(lat: number, lon: number) {
     const response = await fetch(
-      `https://api.teleport.org/api/locations/${lat},${lon}/?embed=location:nearest-urban-areas/location:nearest-urban-area/ua:images`
+      Env.VUE_APP_IMAGE_API_HOST + `/locations/${lat},${lon}/?embed=location:nearest-urban-areas/location:nearest-urban-area/ua:images`
     );
     const data = await response.json();
     this.urbanAreaChanged.next({ ...data });
-  }
-
-  fetchRequestedLocation(zip: String) {
-    this.location = {
-      city: 'Washington',
-      lat: 34.2321,
-      lon: -84.158,
-      region: 'DC',
-      timezone: 'America/New_York',
-      zip: '20001'
-    };
-    this.locationChanged.next({ ...this.location });
   }
 
   async getLocationByZipCode (zipCode) {
@@ -61,7 +53,7 @@ export class LocationService {
       return;
     }
     const response = await fetch(
-      `http://api.zippopotam.us/us/${zipCode}`
+      Env.VUE_APP_ZIP_CODE_HOST + zipCode
     );
     const json = await response.json();
     const {
