@@ -4,18 +4,22 @@ import { Subject, zip } from 'rxjs';
 import { Location } from './location.model';
 import { NearestUrban } from './nearest-urban.model';
 
+import { UIService } from '../services/ui.service';
+
 @Injectable()
 export class LocationService {
   locationChanged = new Subject<Location>();
   urbanAreaChanged = new Subject<NearestUrban>();
   private location: Location;
-  constructor() {}
   currentZip = '';
+
+  constructor(private uiService: UIService) {}
 
   async fetchCurrentLocation() {
     const response = await fetch('http://ip-api.com/json');
     const data = await response.json();
     if (data.zip === this.currentZip) {
+      this.uiService.clearIsLoading();
       return;
     }
     this.currentZip = data.zip;
@@ -53,6 +57,7 @@ export class LocationService {
 
   async getLocationByZipCode (zipCode) {
     if (zipCode === this.currentZip) {
+      this.uiService.clearIsLoading();
       return;
     }
     const response = await fetch(

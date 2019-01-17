@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { UIService } from '../services/ui.service';
 
-import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 import { HistoryService } from '../services/history.service';
 import { Subscription } from 'rxjs';
@@ -13,7 +12,6 @@ import { LocationService } from '../services/location.service';
   styleUrls: ['./side-nav.component.css']
 })
 export class SideNavComponent implements OnInit, OnDestroy {
-  locationForm: FormGroup;
   historySubscription: Subscription;
   @ViewChild('form') formValues;
 

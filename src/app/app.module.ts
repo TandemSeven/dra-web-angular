@@ -9,16 +9,17 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 
 import { MaterialModule } from './material.module';
+import { SideNavModule } from './side-nav/side-nav.module';
 
 import { CurrentWeatherComponent } from './current-weather/current-weather.component';
+import { WeatherForecastComponent } from './weather-forecast/weather-forecast.component';
+import { WaveComponent } from './wave/wave.component';
+import { RefreshComponent } from './refresh/refresh.component';
+
 import { LocationService } from './services/location.service';
 import { WeatherService } from './services/weather.service';
 import { UIService } from './services/ui.service';
-import { HistoryService } from './services/history.service';
-import { WeatherForecastComponent } from './weather-forecast/weather-forecast.component';
-import { WaveComponent } from './wave/wave.component';
-import { SideNavComponent } from './side-nav/side-nav.component';
-import { RefreshComponent } from './refresh/refresh.component';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +27,6 @@ import { RefreshComponent } from './refresh/refresh.component';
     CurrentWeatherComponent,
     WeatherForecastComponent,
     WaveComponent,
-    SideNavComponent,
     RefreshComponent
   ],
   imports: [
@@ -36,9 +36,10 @@ import { RefreshComponent } from './refresh/refresh.component';
     FlexLayoutModule,
     FormsModule,
     HttpClientModule,
-    MaterialModule
+    MaterialModule,
+    SideNavModule
   ],
-  providers: [HistoryService, LocationService, UIService, WeatherService],
+  providers: [LocationService, UIService, WeatherService],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA]
 })
