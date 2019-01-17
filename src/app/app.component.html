@@ -1,8 +1,14 @@
 <div class="app" style="text-align:center">
-  <main>
-    <app-current-weather></app-current-weather>
-    <app-weather-forecast></app-weather-forecast>
-  </main>
- </div>
-
-<router-outlet></router-outlet>
+  <mat-sidenav-container hasBackdrop="false">
+    <mat-sidenav position="end" #sidenav role="navigation" opened="{{ sidenavOpen }}" disableClose>
+      <app-side-nav></app-side-nav>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <main>
+        <app-current-weather></app-current-weather>
+        <app-weather-forecast></app-weather-forecast>
+        <app-refresh *ngIf="spinnerVisible"></app-refresh>
+      </main>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

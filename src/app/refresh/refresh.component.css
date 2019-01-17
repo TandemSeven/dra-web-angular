@@ -1,0 +1,27 @@
+.app-refresh__container {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100vh;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+}
+
+.app-refresh__content {
+  height: 100px;
+  width: 100px;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.app-refresh__content img {
+  animation: spin 2s infinite linear;
+  width: 100px;
+}

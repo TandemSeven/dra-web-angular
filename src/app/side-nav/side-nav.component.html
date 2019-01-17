@@ -1,0 +1,32 @@
+<aside class="sidenav">
+  <header
+    fxLayout="row"
+    fxLayoutAlign="start center"
+  >
+    <button mat-icon-button class="sidenav__close" (click)="onClose()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </header>
+  <form autocomplete="off" #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <input
+      class="sidenav__form__input__zipcode"
+      type="text"
+      placeholder="Enter Zip Code"
+      ngModel
+      name="zipcode"
+      required
+      minlength="5"
+      #zipInput="ngModel"
+    >
+    <button class="sidenav__search" [disabled]="form.invalid">Search</button>
+    <button type="submit" class="sidenav__current" (click)="currentLocation($event)">Current Location</button>
+    <p class="sidenav__form__error"></p>
+  </form>
+  <div class="recent-searches" *ngIf="zipHistory.length">
+    <h2>Recent Zip Code Searches:</h2>
+    <ul>
+      <li *ngFor="let zipcode of zipHistory" (click)="getWeatherByZip(zipcode)">{{ zipcode }}</li>
+    </ul>
+    <button class="sidenav__clear-history" (click)="clearHistory()">Clear Recent Zip Codes</button>
+  </div>
+</aside>

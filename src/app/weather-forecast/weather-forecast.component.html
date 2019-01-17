@@ -1,3 +1,19 @@
-<section>
-  weather-forecast goes here
+<section class="weather-forecast">
+  <div class="weather-forecast__container">
+    <ul>
+      <li *ngFor="let forecast of forecasts" class="weather-forecast__period">
+        <p class="weather-forecast__period__name">
+          {{ forecast.name }}
+        </p>
+        <mat-icon class="weather-icon weather-forecast__period__icon" svgIcon="{{ forecast.icon }}"></mat-icon>
+        <p>
+          <span class="weather-forecast__period__temperature weather-forecast__period__temperature--high">
+            <strong *ngIf="forecast.high">{{ forecast.high.temperature }}°{{ forecast.high.temperatureUnit }}</strong>
+            <strong *ngIf="!forecast.high">{{ currentTemp }}°{{ currentTempUnit }}</strong>
+          </span>
+          <span class="weather-forecast__period__temperature weather-forecast__period__temperature--low">{{ forecast.low.temperature }}°{{ forecast.low.temperatureUnit }}</span>
+        </p>
+      </li>
+    </ul>
+  </div>
 </section>

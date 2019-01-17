@@ -1,0 +1,12 @@
+.mat-drawer {
+  background: rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  opacity: 1;
+  right: 0;
+}
+
+.mat-drawer-inner-container {
+  background-color: transparent;
+}
