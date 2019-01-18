@@ -1,5 +1,9 @@
 @import "../node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css";
 
+* {
+  box-sizing: border-box;
+}
+
 html, body {
   margin: 0;
 }
