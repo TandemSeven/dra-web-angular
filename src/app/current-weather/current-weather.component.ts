@@ -74,7 +74,6 @@ export class CurrentWeatherComponent implements OnInit, OnDestroy, AfterViewInit
           }
         } = currWeather;
         this.locWeatherIcon = this.iconRegex.exec(period.icon)[2];
-        console.log('icon', this.locWeatherIcon)
         this.locWeatherName = period.name;
         this.locWeatherShortForecast = period.shortForecast;
         this.locWeatherTemp = period.temperature;
