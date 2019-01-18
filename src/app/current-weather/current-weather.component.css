@@ -49,10 +49,6 @@
   justify-content: center;
 }
 
-@media screen and (min-width: 960px) {
-  justify-content: left;}
-
-
 header {
   text-align: right;
 }
