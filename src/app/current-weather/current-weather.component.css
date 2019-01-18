@@ -34,15 +34,24 @@
   color: white;
   padding-bottom: 4rem;
   padding-left: 2rem;
-  padding-right: 6rem;
+  padding-right: 2rem;
 }
 
 @media screen and (min-width: 960px) {
   .current-weather__container {
     padding-left: 6rem;
+    padding-right: 6em;
     padding-top: 4rem;
   }
 }
+
+.current-weather__temperature {
+  justify-content: center;
+}
+
+@media screen and (min-width: 960px) {
+  justify-content: left;}
+
 
 header {
   text-align: right;
