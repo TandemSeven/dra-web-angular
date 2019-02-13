@@ -7,7 +7,6 @@
     "build": "ng build",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "serverless client deploy --no-confirm"
   },
   "private": true,
   "dependencies": {
@@ -30,7 +29,6 @@
     "moment": "^2.22.2",
     "rxjs": "~6.3.3",
     "serverless": "^1.36.1",
-    "serverless-finch": "^2.3.2",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
