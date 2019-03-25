@@ -55,13 +55,17 @@ export class SideNavComponent implements OnInit, OnDestroy {
     this.historyService.clear();
   }
 
-  getWeatherByZip(zipcode: string) {
+  async getWeatherByZip(zipcode: string) {
     this.uiService.toggleSidenav();
     this.uiService.setIsLoading();
-    this.locationService.getLocationByZipCode(zipcode);
+    const validLocation = await this.locationService.getLocationByZipCode(zipcode);
     // give some time for the sidenav to close
     setTimeout(() => {
-      this.historyService.set(zipcode);
+
+      if (validLocation) {
+        this.historyService.set(zipcode);
+      }
+
       this.formValues.resetForm();
     }, 500);
   }
