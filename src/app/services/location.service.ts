@@ -26,26 +26,26 @@ export class LocationService {
       this.uiService.clearIsLoading();
       return;
     }
-    this.currentZip = data.postal;
-
-    this.location = {
-      city: data.city,
-      lat: data.latitude,
-      lon: data.longitude,
-      region: data.region,
-      timezone: data.timezone,
-      zip: data.postal
-    };
-    // this.currentZip = data.zip;
+    // this.currentZip = data.postal;
 
     // this.location = {
     //   city: data.city,
-    //   lat: data.lat,
-    //   lon: data.lon,
+    //   lat: data.latitude,
+    //   lon: data.longitude,
     //   region: data.region,
     //   timezone: data.timezone,
-    //   zip: data.zip
+    //   zip: data.postal
     // };
+    this.currentZip = data.zip;
+
+    this.location = {
+      city: data.city,
+      lat: data.lat,
+      lon: data.lon,
+      region: data.region,
+      timezone: data.timezone,
+      zip: data.zip
+    };
     this.locationChanged.next({ ...this.location });
   }
 
